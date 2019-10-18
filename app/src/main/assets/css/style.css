@@ -11,7 +11,7 @@
 body,div,h1,h2,h3,input,textarea {
 	margin: 0px;
 	padding: 0px;
-	font-family: 'zawgyi-one'!important;
+    font-family: 'zawgyi-one'!important;
 	-webkit-font-smoothing: antialiased!important;
 	text-rendering: optimizeLegibility;
 }
