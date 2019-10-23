@@ -6,15 +6,18 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.winhtetnaing.thutasone.ForceUpdateChecker
 import com.winhtetnaing.thutasone.MainFragment
 import com.winhtetnaing.thutasone.R
+import com.winhtetnaing.thutasone.utils.AppUtils
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ForceUpdateChecker.OnUpdateNeededListener {
 
     val TAG = javaClass.simpleName
 
@@ -45,6 +48,10 @@ class MainActivity : AppCompatActivity() {
         mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
+
+        if(AppUtils().hasConnection(this)){
+            ForceUpdateChecker.with(this).onUpdateNeeded(this).check()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -65,5 +72,22 @@ class MainActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         ContextCompat.startActivity(this, intent, null)
     }
+
+    override fun onUpdateNeeded(updateUrl: String, version: String, required: Boolean) {
+        if (required) {
+            AlertDialog.Builder(this)
+                .setTitle("New version available")
+                .setMessage("Please update app to new version for latest features. \nLatest Version - ${version}")
+                .setPositiveButton("Update") { dialog, which ->
+                    openMarket(updateUrl, getString(R.string.app_package))
+                }
+                .setNegativeButton("No, thanks") { dialog, which ->
+                    dialog.dismiss()
+                }
+                .create()
+                .show()
+        }
+    }
+
 
 }

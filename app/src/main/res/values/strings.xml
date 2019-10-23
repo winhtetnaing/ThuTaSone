@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Thu Ta Sone</string>
     <string name="welcome">သုတစုံ Application မှ \n နွေးထွေးစွာကြိုဆိုပါ၏။</string>
-    <string name="version">Version 1.0.0</string>
+    <string name="version">Version 1.0.1</string>
     <string name="APP_ID">ca-app-pub-7814086211431990~7359935912</string>
     <string name="adUnitID1">ca-app-pub-7814086211431990/5764262148</string>
     <string name="adUnitID2">ca-app-pub-7814086211431990/5764262148</string>

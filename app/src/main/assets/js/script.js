@@ -75,11 +75,11 @@ document.ready(function() {
     if (options.addfont) {
         var style = document.createElement('style');
         style.innerHTML = "@font-face {";
-        style.innerHTML += "    font-family: 'zawgyi-one';";
-        style.innerHTML += "	 src: url('file:///android_asset/fonts/zawgyi.ttf');";
-        style.innerHTML += "	 src: url('file:///android_asset/fonts/zawgyi.woff') format('woff'), ";
-        style.innerHTML += "			url('file:///android_asset/fonts/zawgyi.ttf') format('truetype'), ";
-        style.innerHTML += "			url('file:///android_asset/fonts/zawgyi.svg#webfont') format('svg');";
+        style.innerHTML += "    font-family: 'mm3';";
+        style.innerHTML += "	 src: url('file:///android_asset/fonts/mm3.ttf');";
+        style.innerHTML += "	 src: url('file:///android_asset/fonts/mm3.woff') format('mm3'), ";
+        style.innerHTML += "			url('file:///android_asset/fonts/mm3.ttf') format('truetype'), ";
+        style.innerHTML += "			url('file:///android_asset/fonts/mm3.svg#webfont') format('svg');";
         style.innerHTML += "    font-weight: normal;";
         style.innerHTML += "    font-style: normal;";
         style.innerHTML += "}";
